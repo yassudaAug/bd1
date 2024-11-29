@@ -6,12 +6,6 @@ import (
 	"log"
 )
 
-type Database interface {
-	Connect() (*sql.DB, error)             // Connect to the database and return a *sql.DB object
-	Query(query string) (*sql.Rows, error) // Execute a query and return the result set
-	Close() error                          // Close the database connection
-}
-
 type Connection struct {
 	username string // MySQL username (default is root in XAMPP)
 	password string // MySQL password (default is empty in XAMPP)
@@ -41,7 +35,6 @@ func ConnectToDb(conn *Connection) (*sql.DB, error) {
 		log.Fatal(err)
 		return nil, err
 	}
-	defer db.Close()
 
 	err = db.Ping()
 	if err != nil {
