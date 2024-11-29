@@ -27,7 +27,6 @@ func FillConnection(username, password, hostname, port, dbname string) *Connecti
 }
 
 func ConnectToDb(conn *Connection) (*sql.DB, error) {
-
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", conn.username, conn.password, conn.hostname, conn.port, conn.dbname)
 
 	db, err := sql.Open("mysql", dsn)
@@ -43,27 +42,5 @@ func ConnectToDb(conn *Connection) (*sql.DB, error) {
 
 	fmt.Println("Successfully connected to the database!")
 
-	// Your database query logic goes here
-	// Example: Select query
-	// rows, err := db.Query("SELECT id, name FROM users")
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	// defer rows.Close()
-
-	// for rows.Next() {
-	// 	var id int
-	// 	var name string
-	// 	if err := rows.Scan(&id, &name); err != nil {
-	// 		log.Fatal(err)
-	// 	}
-	// 	fmt.Println(id, name)
-	// }
-
-	// if err := rows.Err(); err != nil {
-	// 	log.Fatal(err)
-	// }
-
-	// fmt.Println("Connection succesful!")
 	return db, nil
 }
