@@ -20,8 +20,8 @@ type Connection struct {
 	dbname   string // Database name (replace with your database)
 }
 
-func FillConnection(username, password, hostname, port, dbname string) Connection {
-	conn := Connection{
+func FillConnection(username, password, hostname, port, dbname string) *Connection {
+	conn := &Connection{
 		username: username,
 		password: password,
 		hostname: hostname,

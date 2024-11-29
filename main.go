@@ -1,19 +1,16 @@
 package main
 
-import {
-	"database/sql"
+import (
 	"fmt"
-	"log"
-	"github.com/go-sql-driver/mysql"
-}
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/yassudaAug/bd1/database"
+)
 
 func main() {
+	conn := database.FillConnection("root", "", "localhost", "3306", "hotelaria")
 
-	conn := FillConnection("root", "", "localhost", "3306", "hotelaria")
-
-	// dsn := "root:root@tcp(127.0.0.1:3306)/bruh"
-	
-	db, err := ConnectToDb(conn)
+	db, err := database.ConnectToDb(conn)
 	if err != nil {
 		fmt.Println("Connection error")
 	}
