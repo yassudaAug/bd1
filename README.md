@@ -12,7 +12,7 @@ This project is a simple Hotel Management System implemented in Go. It provides 
 
 ## Requirements
 
-- Go 1.16 or later
+- Go 1.20.1
 - MySQL database
 
 ## Setup
